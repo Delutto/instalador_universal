@@ -1,5 +1,5 @@
 ## Instalador Universal
-![](https://github.com/Delutto/instalador_universal/img/Screenshot_1.png)
+![](https://github.com/Delutto/instalador_universal/blob/main/img/Screenshot_1.png)
 
 Com o Instalador Universal, basta você selecionar a Marca e o Modelo da impressora que ele irá baixar e executar automaticamente o driver compatível com a versão do Windows onde está sendo executado.
 
