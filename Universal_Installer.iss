@@ -1,5 +1,5 @@
 #define MyAppName "Instalador Universal de Impressoras Térmicas Não Fiscais"
-#define MyAppVersion "0.9.2"
+#define MyAppVersion "0.9.4"
 #define MyAppPublisher "Delutto"
 #define MyAppURL "https://github.com/Delutto/thermal_printers"
 #define MyAppExeName "MyProg.exe"
@@ -15,7 +15,7 @@ AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 CreateAppDir=no
-OutputBaseFilename=Instalador_Universal_0.9.2
+OutputBaseFilename=Instalador_Universal_0.9.4
 Compression=lzma2/ultra64
 SolidCompression=yes
 PrivilegesRequired=none
@@ -41,7 +41,7 @@ CustomForm_ComboBoxMarca_Text0=Selecione a Marca...
 CustomForm_ComboBoxMarca_Strings=Argox%nBematech%nControl ID%nDaruma%nDascom%nDiebold%nDimep%nElgin%nEpson%nEvadin%nFeasso%nGainscha%nGertec%nJetway%nLedtec%nMafra%nMenno%nOi Vida%nPerto%nPOS%nStar%nSweda%nTanca%nWaytec
 
 TODOSList=Todos os modelos
-BematechList=MP-100S TH%nMP-2500 TH%nMP-2800 TH%nMP-4000 TH%nMP-4200 TH%nMP-4200 TH ADV%nMP-5100 TH%nPP-10
+BematechList=MP-100S TH%nMP-2500 TH%nMP-2800 TH%nMP-4000 TH%nMP-4200 HS%nMP-4200 TH%nMP-4200 TH ADV%nMP-5100 TH%nPP-10
 ControlIDList=Print ID%nPrint ID Touch
 DarumaList=DR700%nDR800%nFS700%nFS800
 DascomList=DT-210%nDT-230
@@ -113,12 +113,21 @@ begin
          case ComboBoxModelo.ItemIndex of
             2: // MP-2800 TH
                URL := 'https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/Bematech_MP_2800_SpoolerDrivers_v1.3.exe';
-            5, 7: // MP-4200 TH ADV e PP-10
+            4: // MP-4200 HS
+               URL := 'https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/Bematech%20MP-4200-HS_Driver_v1.7.7.exe';
+            6, 8: // MP-4200 TH ADV e PP-10
             begin
                if IsWin64 then
                   URL := 'https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x64_v6.0.1.0.exe'
                else
                   URL := 'https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x86_v6.0.1.0.exe';                  
+            end;
+            7: // MP-5100 TH
+            begin
+              if IsWin64 then
+                 URL := 'https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x64_v5.0.0.4.exe'
+              else
+                 URL := 'https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x86_v5.0.0.4.exe'; 
             end;
             else // Outras...
             begin
